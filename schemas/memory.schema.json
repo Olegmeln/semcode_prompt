@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SemCode Memory",
+  "type": "object",
+  "required": ["profile", "projects", "macros", "language"],
+  "properties": {
+    "profile": {
+      "type": "object",
+      "description": "Устойчивые предпочтения пользователя",
+      "additionalProperties": true
+    },
+    "projects": {
+      "type": "object",
+      "description": "Контекст отдельных проектов",
+      "additionalProperties": true
+    },
+    "macros": {
+      "type": "object",
+      "description": "Пользовательские макрокоманды и их раскрытие",
+      "additionalProperties": {"type": "string"}
+    },
+    "language": {
+      "type": "object",
+      "required": ["version", "aliases", "learned_patterns"],
+      "properties": {
+        "version": {"type": "string"},
+        "aliases": {"type": "object", "additionalProperties": {"type": "string"}},
+        "learned_patterns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["input_pattern", "interpretation"],
+            "properties": {
+              "input_pattern": {"type": "string"},
+              "interpretation": {"type": "string"},
+              "examples_count": {"type": "integer", "minimum": 1},
+              "confidence": {"enum": ["H", "M", "L"]}
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

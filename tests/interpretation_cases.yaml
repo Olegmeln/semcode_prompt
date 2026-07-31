@@ -1,0 +1,12 @@
+version: "0.1"
+cases:
+  - input: "ФМtask-ответ нужен промт Cl eexc new* in докс+"
+    expected_code: "FMtask→P? Cl@Excel new*FM in docs+ q? →P"
+    confidence: "H"
+  - input: "договор 4.1 чуть короче смысл право оставить"
+    expected_code: "LAW edit~ §4.1 short- =sense =law →clean"
+    confidence: "H"
+  - input: "сделай модель"
+    expected_code: "FM new*FM source? output?"
+    confidence: "L"
+    critical_question: "На основе каких исходных данных создавать модель?"

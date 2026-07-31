@@ -1,0 +1,18 @@
+version: "0.1"
+macros:
+  FMtask:
+    expands_to: "domain=financial_modeling intent=task"
+  P?:
+    expands_to: "produce=compiled_prompt"
+  Cl@Excel:
+    expands_to: "executor=Claude environment=Excel_embedded"
+  new*FM:
+    expands_to: "operation=create object=financial_model intensity=1"
+  docs+:
+    expands_to: "sources=multiple_attached_documents"
+  mem+:
+    expands_to: "memory=read_relevant"
+  mem++:
+    expands_to: "memory=read_and_update"
+  q?:
+    expands_to: "clarify_only_if_critical=true"

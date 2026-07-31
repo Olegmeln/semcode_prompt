@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SemCode Command",
+  "type": "object",
+  "required": ["raw_input", "normalized_code", "intent", "confidence"],
+  "properties": {
+    "raw_input": {"type": "string"},
+    "normalized_code": {"type": "string"},
+    "domain": {"type": ["string", "null"]},
+    "intent": {"type": "string"},
+    "executor": {"type": ["string", "null"]},
+    "environment": {"type": ["string", "null"]},
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {"type": "string"},
+          "intensity": {"type": "integer", "minimum": 1, "maximum": 4}
+        }
+      }
+    },
+    "object": {"type": ["string", "null"]},
+    "sources": {"type": "array", "items": {"type": "string"}},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "memory_mode": {"enum": ["none", "read", "read_write", "unknown"]},
+    "output_mode": {"type": "string"},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "critical_ambiguities": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"enum": ["H", "M", "L"]},
+    "compiled_prompt": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

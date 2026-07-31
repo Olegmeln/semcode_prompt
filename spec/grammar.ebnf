@@ -1,0 +1,17 @@
+command        = [domain], [intent], {segment}, [output] ;
+segment        = executor | operation | object | source | constraint | memory | free_text ;
+domain         = token ;
+intent         = token, [direction], token ;
+direction      = "→" | "<-" | ":" ;
+executor       = token, "@", token ;
+operation      = token, {"*" | "+" | "-" | "~" | "!"} ;
+object         = token | semantic_ref | position_ref ;
+source         = "in", space, token, ["+"] ;
+constraint     = ("=" | "!") , token, [":", value] ;
+memory         = "mem", ["+" | "++" | "-" | "?"] ;
+output         = "→", token ;
+semantic_ref   = "@", token, {".", token} ;
+position_ref   = "§", number, {".", number} ;
+free_text      = ? any natural-language fragment ? ;
+token          = letter, {letter | digit | "_" | "-"} ;
+value          = token | quoted_text ;

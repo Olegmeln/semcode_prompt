@@ -1,0 +1,33 @@
+dictionary_id: "CORE"
+version: "0.2"
+ir_version: "0.2"
+tokens:
+  "→P":
+    path: "output.kind"
+    value: "compiled_prompt"
+    required: false
+    description: "Return or compile a full prompt"
+  "→J":
+    path: "output.kind"
+    value: "json"
+    required: false
+    description: "Return JSON"
+  "!inv":
+    path: "constraints[]"
+    value:
+      type: "do_not_invent_data"
+    required: false
+    description: "Do not invent missing data"
+  "src:d+":
+    path: "sources[]"
+    value:
+      kind: "attached_documents"
+      cardinality: "multiple"
+    required: false
+    description: "Use multiple attached documents"
+parameters:
+  "scn":
+    path: "requirements.scenario_count"
+    type: "integer"
+    minimum: 1
+    maximum: 20

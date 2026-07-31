@@ -1,0 +1,50 @@
+dictionary_id: "FM"
+version: "0.2"
+ir_version: "0.2"
+tokens:
+  "FM:new":
+    path: "intent"
+    value:
+      action: "create"
+      object: "financial_model"
+      intensity: 1
+    required: true
+    description: "Create a financial model"
+  "t:Cl@X":
+    path: "target"
+    value:
+      model: "Claude"
+      environment: "Excel"
+      adapter: "claude-excel"
+    required: false
+    description: "Claude inside Excel"
+  "src:d+":
+    path: "sources[]"
+    value:
+      kind: "attached_documents"
+      cardinality: "multiple"
+      priority: 1
+    required: false
+    description: "Multiple attached documents"
+  "!inv":
+    path: "constraints[]"
+    value:
+      type: "do_not_invent_data"
+    required: false
+    description: "Do not invent missing data"
+  "→P":
+    path: "output.kind"
+    value: "compiled_prompt"
+    required: false
+    description: "Compile full prompt"
+parameters:
+  "scn":
+    path: "requirements.scenario_count"
+    type: "integer"
+    minimum: 1
+    maximum: 20
+  "period":
+    path: "requirements.period_months"
+    type: "integer"
+    minimum: 1
+    maximum: 600

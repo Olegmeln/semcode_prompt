@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://semcode.local/schemas/dictionary-0.2.json",
+  "title": "SemCode Codec Dictionary v0.2",
+  "type": "object",
+  "required": [
+    "dictionary_id",
+    "version",
+    "ir_version",
+    "tokens"
+  ],
+  "properties": {
+    "dictionary_id": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_-]*$"
+    },
+    "version": {
+      "type": "string"
+    },
+    "ir_version": {
+      "type": "string"
+    },
+    "tokens": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "path",
+          "value"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "value": {},
+          "required": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "path",
+          "type"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "string",
+              "integer",
+              "number",
+              "boolean",
+              "json"
+            ]
+          },
+          "minimum": {
+            "type": "number"
+          },
+          "maximum": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

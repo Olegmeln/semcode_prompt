@@ -1,0 +1,22 @@
+version: "0.2"
+cases:
+  - id: fm-roundtrip
+    dictionary: "FM-0.2"
+    encoded: "@D:FM-0.2;ir:0.2 FM:new t:Cl@X src:d+ scn:3 !inv →P"
+    expected_ir:
+      intent.action: "create"
+      intent.object: "financial_model"
+      target.model: "Claude"
+      target.environment: "Excel"
+      requirements.scenario_count: 3
+      output.kind: "compiled_prompt"
+
+  - id: unknown-token
+    dictionary: "FM-0.2"
+    encoded: "@D:FM-0.2 FM:new X:unknown"
+    expected_error: "E_UNKNOWN_REQUIRED_TOKEN"
+
+  - id: wrong-version
+    dictionary: "FM-0.2"
+    encoded: "@D:FM-9.9 FM:new"
+    expected_error: "E_DICTIONARY_VERSION"

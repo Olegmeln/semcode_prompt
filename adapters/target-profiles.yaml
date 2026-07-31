@@ -1,0 +1,31 @@
+version: "0.2"
+profiles:
+  generic-llm:
+    prompt_style: "structured_markdown"
+    structured_output: "json_schema_when_requested"
+    file_context: "describe_available_files"
+
+  claude-excel:
+    model_family: "Claude"
+    environment: "Excel"
+    prompt_style: "direct_workbook_instructions"
+    structured_output: "json_when_needed"
+    file_context: "attached_workbooks_and_documents"
+    preferences:
+      - "Use Excel formulas rather than static values"
+      - "Separate assumptions from calculations"
+      - "Create checks and questions sections"
+
+  openai-api:
+    model_family: "OpenAI"
+    environment: "API"
+    prompt_style: "system_plus_user"
+    structured_output: "json_schema"
+    file_context: "file_ids_or_retrieval"
+
+  local-model:
+    model_family: "local"
+    environment: "local_runtime"
+    prompt_style: "self_contained"
+    structured_output: "json"
+    file_context: "inline_or_local_paths"

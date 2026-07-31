@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://semcode.local/schemas/personal-language-0.2.json",
+  "title": "SemCode Personal Language Memory v0.2",
+  "type": "object",
+  "required": [
+    "version",
+    "user_namespace",
+    "tokens"
+  ],
+  "properties": {
+    "version": {
+      "const": "0.2"
+    },
+    "user_namespace": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tokens": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "surface_forms",
+          "canonical",
+          "meaning",
+          "scope",
+          "status",
+          "confidence",
+          "confirmations"
+        ],
+        "properties": {
+          "surface_forms": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "canonical": {
+            "type": "string"
+          },
+          "meaning": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "scope": {
+            "enum": [
+              "session",
+              "task",
+              "project",
+              "global"
+            ]
+          },
+          "status": {
+            "enum": [
+              "candidate",
+              "confirmed",
+              "deprecated",
+              "conflicted"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "confirmations": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "rejections": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "examples": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "last_used": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

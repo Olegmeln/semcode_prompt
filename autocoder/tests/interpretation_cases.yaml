@@ -1,0 +1,26 @@
+version: "0.2"
+cases:
+  - id: fm-claude-excel
+    input: "ФМtask ответ Cl eexc new* in докс+ три сценария не выдумывать"
+    expected:
+      normalized_code: "FMtask→P Cl@Excel new*FM src:docs+ scn:3 !invent mem+ q:critical →prompt"
+      ir:
+        intent.action: "create"
+        intent.object: "financial_model"
+        target.model: "Claude"
+        target.environment: "Excel"
+        requirements.scenario_count: 3
+      confidence_level: "H"
+
+  - id: ambiguous-model
+    input: "сделай модель"
+    expected:
+      confidence_level: "L"
+      critical_question_contains: "какую модель"
+
+  - id: personal-token-correction
+    input: "Cl@X здесь значит Claude в Excel"
+    expected:
+      memory_candidate:
+        canonical: "Cl@Excel"
+        scope: "global"

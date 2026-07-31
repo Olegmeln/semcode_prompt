@@ -1,0 +1,47 @@
+{
+  "version": "0.2",
+  "user_namespace": "example-user",
+  "tokens": [
+    {
+      "surface_forms": [
+        "Cl eexc",
+        "кл в экс",
+        "Cl@X"
+      ],
+      "canonical": "Cl@Excel",
+      "meaning": {
+        "target.model": "Claude",
+        "target.environment": "Excel"
+      },
+      "scope": "global",
+      "status": "confirmed",
+      "confidence": 0.97,
+      "confirmations": 4,
+      "rejections": 0,
+      "examples": [
+        "ФМtask ответ Cl eexc new* in докс+"
+      ],
+      "last_used": "2026-07-31T11:00:00Z"
+    },
+    {
+      "surface_forms": [
+        "new*"
+      ],
+      "canonical": "new*",
+      "meaning": {
+        "intent.action": "create",
+        "requirements.build_from_scratch": true
+      },
+      "scope": "global",
+      "status": "confirmed",
+      "confidence": 0.99,
+      "confirmations": 6,
+      "rejections": 0,
+      "examples": [
+        "new*FM",
+        "new* deck"
+      ],
+      "last_used": "2026-07-31T11:00:00Z"
+    }
+  ]
+}

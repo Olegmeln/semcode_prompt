@@ -1,0 +1,148 @@
+{
+  "version": "0.2",
+  "user_namespace": "olegmeln",
+  "tokens": [
+    {
+      "surface_forms": ["ggwp"],
+      "canonical": "ggwp",
+      "meaning": {
+        "signal": "thread_close",
+        "action": "end_current_topic"
+      },
+      "scope": "global",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "confirmations": 1,
+      "rejections": 0,
+      "examples": [
+        "ggwp\nпараллельный проект https://github.com/Olegmeln/semcode_prompt.git",
+        "ggwp есть согласовали"
+      ],
+      "last_used": null
+    },
+    {
+      "surface_forms": ["Om Gan Ganapatae Namah", "OM*"],
+      "canonical": "OM*",
+      "meaning": {
+        "intent.action": "start_session",
+        "scope_target": "project",
+        "note": "мантра Ганапати — традиционно произносится в начале нового начинания; здесь удерживается как есть, а не сокращается до бессмысленной аббревиатуры"
+      },
+      "scope": "project",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "confirmations": 1,
+      "rejections": 0,
+      "examples": [
+        "Om Gan Ganapatae Namah - мантара от неё короткая команда начало сессии проекта и т.д"
+      ],
+      "last_used": null
+    },
+    {
+      "surface_forms": ["BS", "мозговой штурм", "шутки рассматриваем всерьёз"],
+      "canonical": "BS",
+      "meaning": {
+        "mode": "brainstorm",
+        "mode.rigor": "suspended",
+        "mode.description": "режим исследования: свободный наброс промптов с произвольным набором фактов, домыслов и возможными ошибками в названиях/словах — точность вторична по отношению к генерации гипотез"
+      },
+      "scope": "global",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "confirmations": 1,
+      "rejections": 0,
+      "examples": [
+        "мозговой штурм, погружаемся в любые гипотезы, шутки рассматриваем всерьёз",
+        "BS `мозговой штурм` + `шутки рассматриваем всерьёз по сути режим исследования...`"
+      ],
+      "last_used": null
+    },
+    {
+      "surface_forms": ["RIG*"],
+      "canonical": "RIG*",
+      "meaning": {
+        "mode": "brainstorm",
+        "mode.rigor": "restored",
+        "mode.description": "выход из BS-режима — возврат к обычной точности и проверке фактов"
+      },
+      "scope": "global",
+      "status": "candidate",
+      "confidence": 0.6,
+      "confirmations": 0,
+      "rejections": 0,
+      "examples": [
+        "естественная пара к BS — явный сигнал закрыть режим наброса гипотез и вернуться к обычной строгости"
+      ],
+      "last_used": null
+    },
+    {
+      "surface_forms": ["map+"],
+      "canonical": "map+",
+      "meaning": {
+        "action": "append_to_project_doc",
+        "note": "зафиксировать текущий вывод в рабочем документе/карте проекта, не только в чате"
+      },
+      "scope": "project",
+      "status": "candidate",
+      "confidence": 0.65,
+      "confirmations": 0,
+      "rejections": 0,
+      "examples": [
+        "поведение, повторявшееся весь разговор про время: каждый раунд добавлялся раздел в карту проекта без отдельной просьбы"
+      ],
+      "last_used": null
+    },
+    {
+      "surface_forms": ["chk+"],
+      "canonical": "chk+",
+      "meaning": {
+        "requirement": "empirical_grounding",
+        "action": "verify_with_real_sources",
+        "note": "проверить гипотезу/аналогию на реальных данных или источниках, а не оставлять как умозрительную"
+      },
+      "scope": "global",
+      "status": "candidate",
+      "confidence": 0.6,
+      "confirmations": 0,
+      "rejections": 0,
+      "examples": [
+        "«делаем модель, загружаем результаты экспериментов, учимся предсказывать» — переход от аналогии к проверке на данных CMS/LHC"
+      ],
+      "last_used": null
+    },
+    {
+      "surface_forms": ["auto+"],
+      "canonical": "auto+",
+      "meaning": {
+        "permission.autonomous_edit": true,
+        "note": "право дополнять документы по своей инициативе при обнаружении пробела, без отдельного разрешения на каждый раз"
+      },
+      "scope": "project",
+      "status": "candidate",
+      "confidence": 0.7,
+      "confirmations": 0,
+      "rejections": 0,
+      "examples": [
+        "уже действует как общая предпочтение для проекта «адаптивная платформа» — здесь предлагается как явный переносимый токен на другие проекты"
+      ],
+      "last_used": null
+    },
+    {
+      "surface_forms": ["ship*"],
+      "canonical": "ship*",
+      "meaning": {
+        "action": "package_and_deliver",
+        "includes": ["validate_schema", "local_commit", "patch", "send_files"]
+      },
+      "scope": "global",
+      "status": "candidate",
+      "confidence": 0.55,
+      "confirmations": 0,
+      "rejections": 0,
+      "examples": [
+        "выполненная последовательность для personal-language.json: валидация по схеме → локальный коммит → git-патч → отправка файлов"
+      ],
+      "last_used": null
+    }
+  ]
+}

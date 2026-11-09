@@ -3,7 +3,9 @@
   "user_namespace": "olegmeln",
   "tokens": [
     {
-      "surface_forms": ["ggwp"],
+      "surface_forms": [
+        "ggwp"
+      ],
       "canonical": "ggwp",
       "meaning": {
         "signal": "thread_close",
@@ -18,10 +20,14 @@
         "ggwp\nпараллельный проект https://github.com/Olegmeln/semcode_prompt.git",
         "ggwp есть согласовали"
       ],
-      "last_used": null
+      "last_used": null,
+      "kind": "token"
     },
     {
-      "surface_forms": ["Om Gan Ganapatae Namah", "OM*"],
+      "surface_forms": [
+        "Om Gan Ganapatae Namah",
+        "OM*"
+      ],
       "canonical": "OM*",
       "meaning": {
         "intent.action": "start_session",
@@ -36,10 +42,15 @@
       "examples": [
         "Om Gan Ganapatae Namah - мантара от неё короткая команда начало сессии проекта и т.д"
       ],
-      "last_used": null
+      "last_used": null,
+      "kind": "token"
     },
     {
-      "surface_forms": ["BS", "мозговой штурм", "шутки рассматриваем всерьёз"],
+      "surface_forms": [
+        "BS",
+        "мозговой штурм",
+        "шутки рассматриваем всерьёз"
+      ],
       "canonical": "BS",
       "meaning": {
         "mode": "brainstorm",
@@ -55,10 +66,13 @@
         "мозговой штурм, погружаемся в любые гипотезы, шутки рассматриваем всерьёз",
         "BS `мозговой штурм` + `шутки рассматриваем всерьёз по сути режим исследования...`"
       ],
-      "last_used": null
+      "last_used": null,
+      "kind": "mode"
     },
     {
-      "surface_forms": ["RIG*"],
+      "surface_forms": [
+        "RIG*"
+      ],
       "canonical": "RIG*",
       "meaning": {
         "mode": "brainstorm",
@@ -73,10 +87,13 @@
       "examples": [
         "естественная пара к BS — явный сигнал закрыть режим наброса гипотез и вернуться к обычной строгости"
       ],
-      "last_used": null
+      "last_used": null,
+      "kind": "mode"
     },
     {
-      "surface_forms": ["map+"],
+      "surface_forms": [
+        "map+"
+      ],
       "canonical": "map+",
       "meaning": {
         "action": "append_to_project_doc",
@@ -90,10 +107,13 @@
       "examples": [
         "поведение, повторявшееся весь разговор про время: каждый раунд добавлялся раздел в карту проекта без отдельной просьбы"
       ],
-      "last_used": null
+      "last_used": null,
+      "kind": "token"
     },
     {
-      "surface_forms": ["chk+"],
+      "surface_forms": [
+        "chk+"
+      ],
       "canonical": "chk+",
       "meaning": {
         "requirement": "empirical_grounding",
@@ -108,10 +128,13 @@
       "examples": [
         "«делаем модель, загружаем результаты экспериментов, учимся предсказывать» — переход от аналогии к проверке на данных CMS/LHC"
       ],
-      "last_used": null
+      "last_used": null,
+      "kind": "token"
     },
     {
-      "surface_forms": ["auto+"],
+      "surface_forms": [
+        "auto+"
+      ],
       "canonical": "auto+",
       "meaning": {
         "permission.autonomous_edit": true,
@@ -125,14 +148,22 @@
       "examples": [
         "уже действует как общая предпочтение для проекта «адаптивная платформа» — здесь предлагается как явный переносимый токен на другие проекты"
       ],
-      "last_used": null
+      "last_used": null,
+      "kind": "token"
     },
     {
-      "surface_forms": ["ship*"],
+      "surface_forms": [
+        "ship*"
+      ],
       "canonical": "ship*",
       "meaning": {
         "action": "package_and_deliver",
-        "includes": ["validate_schema", "local_commit", "patch", "send_files"]
+        "includes": [
+          "validate_schema",
+          "local_commit",
+          "patch",
+          "send_files"
+        ]
       },
       "scope": "global",
       "status": "candidate",
@@ -142,7 +173,162 @@
       "examples": [
         "выполненная последовательность для personal-language.json: валидация по схеме → локальный коммит → git-патч → отправка файлов"
       ],
+      "last_used": null,
+      "kind": "token"
+    },
+    {
+      "surface_forms": [
+        "LG"
+      ],
+      "canonical": "LG",
+      "kind": "token",
+      "meaning": {
+        "action": "elaborate_independently",
+        "note": "«думай сам / доработай»: дана только рамка — развить и сформулировать самостоятельно пункт, к которому приписан; действует здесь и далее"
+      },
+      "scope": "global",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "confirmations": 2,
+      "rejections": 0,
+      "examples": [
+        "LG — думай сам: накидал рамочные идеи, развей их"
+      ],
       "last_used": null
+    },
+    {
+      "surface_forms": [
+        "/"
+      ],
+      "canonical": "/",
+      "kind": "command_prefix",
+      "meaning": {
+        "syntax": "/<код>[ аргументы]",
+        "note": "знак ввода команды; то, что идёт сразу за ним, — команда, а не текст задачи"
+      },
+      "scope": "global",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "confirmations": 1,
+      "rejections": 0,
+      "examples": [
+        "/ знак ввода команды, например: /F ..."
+      ],
+      "last_used": "2026-11-09T14:05:00+00:00"
+    },
+    {
+      "surface_forms": [
+        "/--"
+      ],
+      "canonical": "/--",
+      "kind": "scope_operator",
+      "meaning": {
+        "scope.relation": "direct_or_indirect",
+        "scope.width": "wide",
+        "note": "расширение области: всё, что относится к предмету прямо либо косвенно; «и т.д.» — список открыт"
+      },
+      "scope": "global",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "confirmations": 1,
+      "rejections": 0,
+      "examples": [
+        "/--, знак для относящихся прямо либо косвенно и т.д.",
+        "если предполагаешь что твой доступ к информации /--, недостаточен для полной картины"
+      ],
+      "last_used": "2026-11-09T14:05:00+00:00"
+    },
+    {
+      "surface_forms": [
+        "/-"
+      ],
+      "canonical": "/-",
+      "kind": "scope_operator",
+      "meaning": {
+        "scope.relation": "direct_only",
+        "scope.width": "narrow",
+        "note": "сужение области, конкретика: только то, что относится прямо"
+      },
+      "scope": "global",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "confirmations": 1,
+      "rejections": 0,
+      "examples": [
+        "/-, только прямо (сужение области, конкретика) и т.д."
+      ],
+      "last_used": "2026-11-09T14:05:00+00:00"
+    },
+    {
+      "surface_forms": [
+        "/F"
+      ],
+      "canonical": "/F",
+      "kind": "command",
+      "meaning": {
+        "flag": "uncertain_wording",
+        "action": "treat_input_wording_with_caution",
+        "delegate": "text_editor_agent",
+        "fallback": "create_text_editor_agent",
+        "note": "в промпте возможны некорректные, неясные, плохо сформулированные формулировки — не переносить их в выдачу дословно, использовать с осторожностью; по возможности вызвать агента-редактора текстов, если его нет — создать (см. autocoder/agents/TEXT_EDITOR_AGENT.md)"
+      },
+      "scope": "global",
+      "status": "confirmed",
+      "confidence": 0.85,
+      "confirmations": 1,
+      "rejections": 0,
+      "examples": [
+        "/F возможно некорректные неясные плохо сформулированные формулировки промта, использовать в тексте выдачи с осторожностью"
+      ],
+      "last_used": "2026-11-09T14:05:00+00:00"
+    },
+    {
+      "surface_forms": [
+        "/A"
+      ],
+      "canonical": "/A",
+      "kind": "command",
+      "meaning": {
+        "action": "build_agent_or_skill",
+        "params": [
+          "content",
+          "environment",
+          "style",
+          "language"
+        ],
+        "note": "гипотеза: собрать агента/скилл по четырём параметрам — содержание, среда, стиль, язык; требует подтверждения"
+      },
+      "scope": "global",
+      "status": "candidate",
+      "confidence": 0.5,
+      "confirmations": 0,
+      "rejections": 0,
+      "examples": [
+        "/A SKILL: content, enviroment, stile, language, /,"
+      ],
+      "last_used": null
+    },
+    {
+      "surface_forms": [
+        "F"
+      ],
+      "canonical": "F",
+      "kind": "command",
+      "meaning": {
+        "alias_of": "/F",
+        "position": "отдельной строкой в конце сообщения",
+        "applies_to": "whole_message",
+        "note": "краткая форма /F без префикса; распознаётся только как отдельная последняя строка, внутри текста не считается командой"
+      },
+      "scope": "global",
+      "status": "candidate",
+      "confidence": 0.7,
+      "confirmations": 0,
+      "rejections": 0,
+      "examples": [
+        "...предлагай какие паки и ресурсы считаешь возможным добавить в проект, это постепенный процесс\nF"
+      ],
+      "last_used": "2026-11-09T14:07:00+00:00"
     }
   ]
 }

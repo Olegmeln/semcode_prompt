@@ -35,9 +35,13 @@ def main() -> int:
     # Validate example personal language
     try:
         schema = load_json(ROOT / 'autocoder/schemas/personal-language.schema.json')
-        instance = load_json(ROOT / 'autocoder/memory/personal-language.example.json')
-        for err in Draft202012Validator(schema).iter_errors(instance):
-            errors.append(f'personal-language.example.json: {err.message}')
+        for name in ('personal-language.example.json', 'personal-language.json'):
+            instance = load_json(ROOT / 'autocoder/memory' / name)
+            for err in Draft202012Validator(schema).iter_errors(instance):
+                errors.append(f'{name}: {err.message}')
+            canon = [t['canonical'] for t in instance.get('tokens', [])]
+            for dup in sorted({c for c in canon if canon.count(c) > 1}):
+                errors.append(f'{name}: duplicate canonical token {dup!r}')
     except Exception as exc:
         errors.append(f'personal language validation: {exc}')
 

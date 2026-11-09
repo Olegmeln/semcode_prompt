@@ -85,6 +85,16 @@
               "null"
             ],
             "format": "date-time"
+          },
+          "kind": {
+            "enum": [
+              "token",
+              "mode",
+              "command_prefix",
+              "command",
+              "scope_operator"
+            ],
+            "description": "класс записи: обычный токен, режим, префикс команды (/), команда (/F), оператор области (/-, /--)"
           }
         },
         "additionalProperties": false
